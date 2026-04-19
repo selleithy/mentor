@@ -1,5 +1,5 @@
 // Replace this with your Apps Script web app URL after deploying
-const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz3VkzVFAlzrYEaGXLuZvyhO-2R9fAjE1n2h7A_KTSu8LVATO-b0w1wvwdDOniHdhgcXA/exec';
 
 const MENTOR = {
     role: 'mentor',
