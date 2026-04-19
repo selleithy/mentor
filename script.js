@@ -77,11 +77,9 @@ form.addEventListener('submit', async (e) => {
 
     if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL') {
         try {
-            await fetch(APPS_SCRIPT_URL, {
-                method: 'POST',
+            await fetch(APPS_SCRIPT_URL + '?' + new URLSearchParams(data), {
+                method: 'GET',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
             });
         } catch (err) {
             console.error('Submission error', err);
