@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="view">
+
+    <!-- Home View -->
+    <div id="viewHome" class="view">
         <div class="home-inner">
             <div class="home-hero">
                 <div class="hero-icon">
@@ -19,7 +21,7 @@
             </div>
 
             <div class="card-grid">
-                <a class="role-card card-mentor" href="https://docs.google.com/forms/d/e/1FAIpQLScTe0ih4a4CChRzxm9rRvn2iehDR-YolqvpS6PfKKeVE9gneQ/viewform?usp=header" target="_blank" rel="noopener">
+                <button class="role-card card-mentor" id="btnMentor">
                     <div class="card-icon icon-indigo">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><polyline points="16 11 18 13 22 9"/></svg>
                     </div>
@@ -29,9 +31,9 @@
                         Get Started
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </span>
-                </a>
+                </button>
 
-                <a class="role-card card-mentee" href="https://docs.google.com/forms/d/e/1FAIpQLSc5LgltAbxIvts9fXfhowCOD8uhNCpG9Njpd9bzqryemtTuNg/viewform?usp=header" target="_blank" rel="noopener">
+                <button class="role-card card-mentee" id="btnMentee">
                     <div class="card-icon icon-emerald">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     </div>
@@ -41,11 +43,67 @@
                         Get Started
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </span>
-                </a>
+                </button>
             </div>
 
             <p class="social-proof">Join hundreds of professionals already connecting</p>
         </div>
     </div>
+
+    <!-- Form View -->
+    <div id="viewForm" class="view" style="display:none;">
+        <div class="form-inner">
+            <button class="back-btn" id="btnBack">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back
+            </button>
+
+            <!-- Success state -->
+            <div id="successPanel" class="form-card text-center" style="display:none;">
+                <div class="success-icon" id="successIcon"></div>
+                <h2>Thank You!</h2>
+                <p>We've received your interest. We'll be in touch soon!</p>
+            </div>
+
+            <!-- Form state -->
+            <div id="formPanel" class="form-card">
+                <div class="form-header">
+                    <h2 id="formTitle"></h2>
+                    <p id="formSubtitle"></p>
+                </div>
+
+                <form id="registrationForm">
+                    <input type="hidden" name="role" id="fieldRole">
+
+                    <div class="field">
+                        <label for="fieldName">Full Name</label>
+                        <input type="text" id="fieldName" name="name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="fieldEmail">Email Address</label>
+                        <input type="email" id="fieldEmail" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="fieldExpertise" id="labelExpertise"></label>
+                        <input type="text" id="fieldExpertise" name="expertise" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="fieldMessage" id="labelMessage"></label>
+                        <textarea id="fieldMessage" name="message" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Submit Interest
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

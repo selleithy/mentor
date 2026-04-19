@@ -1,3 +1,6 @@
+// Replace this with your Apps Script web app URL after deploying
+const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+
 const MENTOR = {
     role: 'mentor',
     title: 'Become a Mentor',
@@ -42,7 +45,6 @@ function showForm(config) {
     const btn = document.getElementById('submitBtn');
     btn.className = 'submit-btn ' + config.submitClass;
 
-    // Store config for success screen
     form.dataset.successIconClass = config.successIconClass;
     form.dataset.successIconEmoji = config.successIconEmoji;
 
@@ -65,22 +67,27 @@ document.getElementById('btnBack').addEventListener('click', () => {
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const action = form.getAttribute('action') || '';
-    const formData = new FormData(form);
+    const data = {
+        role: form.elements['role'].value,
+        name: form.elements['name'].value,
+        email: form.elements['email'].value,
+        expertise: form.elements['expertise'].value,
+        message: form.elements['message'].value,
+    };
 
-    if (!action.includes('YOUR_FORM_ID')) {
+    if (APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL') {
         try {
-            const res = await fetch(action, {
+            await fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
             });
-            if (!res.ok) console.error('Submission failed', await res.text());
         } catch (err) {
             console.error('Submission error', err);
         }
     } else {
-        console.log('Registration (Formspree not configured):', Object.fromEntries(formData));
+        console.log('Submission (Apps Script not configured):', data);
     }
 
     // Show success
