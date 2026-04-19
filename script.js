@@ -80,8 +80,7 @@ form.addEventListener('submit', async (e) => {
             await fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
+                body: new URLSearchParams(data),
             });
         } catch (err) {
             console.error('Submission error', err);
